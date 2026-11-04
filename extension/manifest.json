@@ -1,0 +1,59 @@
+{
+  "manifest_version": 2,
+  "name": "cyt",
+  "version": "0.1.0",
+  "description": "cyt: YouTube yorumlarına GIF ekleme denemesi (deneysel). rayytor/desktop_gifs temelinde, GPL-3.0.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cyt@local.invalid"
+    }
+  },
+  "permissions": [
+    "https://tenor.com/*",
+    "https://tenor.googleapis.com/*",
+    "https://www.youtube.com/*",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "src/availability.js",
+      "src/protocol.js",
+      "src/verification.js",
+      "src/library.js",
+      "src/tenor.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "src/availability.js",
+        "src/binary-test.js",
+        "src/protocol.js",
+        "src/main.js",
+        "src/comment-edit.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*"
+      ],
+      "js": [
+        "src/availability.js",
+        "src/verification.js",
+        "src/binary-test.js",
+        "src/mobile.js"
+      ],
+      "css": [
+        "src/mobile.css"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

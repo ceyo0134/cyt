@@ -1,0 +1,43 @@
+/* Android touch layout, 2026-10-12, GPL-3.0. YouTube remains the renderer. */
+ytd-commentbox.gcfy-edit-commentbox{display:block;min-width:0;scroll-margin-block:64px}
+ytd-commentbox.gcfy-edit-commentbox #contenteditable-root{min-height:48px;overflow-wrap:anywhere}
+ytd-commentbox.gcfy-edit-commentbox #footer{position:relative!important;bottom:auto!important}
+.gcfy-edit-status{font:13px/1.4 system-ui;color:inherit;padding:8px 0}
+.gcfy-btn{display:inline-flex;align-items:center;justify-content:center;min-width:48px;min-height:48px;padding:8px 12px;margin:2px;border:1px solid #B88025;border-radius:24px;background:transparent;color:inherit;font:600 14px system-ui;cursor:pointer;flex:none}
+.gcfy-btn:focus-visible{outline:3px solid #F0B34A}
+.gcfy-draft{display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;gap:8px;padding:6px 8px;margin:4px 0;border:1px solid #C99337;border-radius:9px;background:#fff5df;color:#172131;font:14px/1.3 system-ui;box-sizing:border-box;max-width:100%}
+.gcfy-draft strong{display:none}.gcfy-draft img{width:32px;max-height:32px;object-fit:contain;border-radius:5px}
+.gcfy-draft-status{min-width:0;margin:0;overflow-wrap:break-word}.gcfy-draft-status[data-error]{color:#a12121}
+.gcfy-draft button,.gcfy-draft a{min-height:44px;padding:8px;border-radius:8px;font:inherit}
+.gcfy-draft button{min-width:44px;max-width:160px}.gcfy-draft a{grid-column:1/-1}.gcfy-draft-status[data-error]{max-height:5.2em;overflow-y:auto}
+.gcfy-draft button{border:1px solid #8295af;background:transparent;color:inherit;cursor:pointer}.gcfy-draft a{color:#1358aa}
+.gcfy-draft [hidden]{display:none!important}.gcfy-draft button:disabled{opacity:.45}
+html[dark] .gcfy-draft{background:#2c251c;color:#fff3dc}html[dark] .gcfy-draft-status[data-error]{color:#ffb6a9}html[dark] .gcfy-draft a{color:#9ac8ff}
+ytd-commentbox.gcfy-commentbox #footer{height:auto!important;min-height:44px;min-width:0!important;display:flex!important;align-items:center;gap:6px;flex-wrap:wrap!important;padding:4px 0!important;margin-top:4px!important;position:sticky;bottom:0;z-index:3;background:var(--yt-spec-base-background,#fff)}
+ytd-commentbox.gcfy-commentbox #contenteditable-root{font-size:18px!important;line-height:1.4!important;min-height:44px!important;overflow-wrap:break-word}
+ytd-commentbox.gcfy-commentbox #submit-button button{font-size:16px!important;min-height:44px!important;min-width:76px!important}
+.gcfy-native-submit{outline:3px solid #F0B34A!important;outline-offset:2px;scroll-margin:10px!important}
+.gcfy-comment-dialog{position:fixed!important;top:calc(var(--gcfy-vp-top,0px) + 8px)!important;left:calc(var(--gcfy-vp-left,0px) + var(--gcfy-vp-width,100vw)/2)!important;transform:translateX(-50%)!important;margin:0!important;width:min(720px,calc(var(--gcfy-vp-width,100vw) - 16px))!important;height:calc(var(--gcfy-vp-height,100vh) - 16px)!important;max-height:calc(var(--gcfy-vp-height,100vh) - 16px)!important;min-width:0!important;overflow:hidden!important;box-sizing:border-box!important}
+.gcfy-comment-dialog ytd-engagement-panel-section-list-renderer,.gcfy-comment-dialog>ytd-comments{display:flex!important;flex-direction:column!important;min-height:0!important;height:100%!important;max-height:100%!important;min-width:0!important}
+.gcfy-comment-dialog ytd-engagement-panel-section-list-renderer>#content,.gcfy-comment-scroll{min-height:0!important;flex:1 1 auto!important;max-height:100%!important;overflow-y:auto!important;overscroll-behavior:contain}
+.gcfy-comment-dialog ytd-comment-simplebox-renderer{min-width:0!important;margin:8px!important}
+.gcfy-comment-dialog{background:var(--yt-spec-base-background,#fff)!important;border-radius:12px!important}
+ytd-comment-renderer #content-text{font-size:16px!important;line-height:1.5!important}
+ytd-shorts{--gcfy-short-height:max(160px,calc(var(--gcfy-vp-height,100vh) - 56px));--gcfy-short-width:min(315px,calc(var(--gcfy-short-height)*.5625),calc(var(--gcfy-vp-width,100vw) - 120px))}
+ytd-shorts #shorts-container{height:calc(var(--gcfy-vp-height,100vh) - 40px)!important;max-height:calc(var(--gcfy-vp-height,100vh) - 40px)!important;min-height:0!important}
+ytd-reel-video-renderer{height:var(--gcfy-short-height)!important;min-height:0!important;max-height:var(--gcfy-short-height)!important;width:var(--gcfy-short-width)!important;min-width:0!important}
+ytd-reel-video-renderer #short-video-container,ytd-reel-video-renderer .player-wrapper,ytd-reel-video-renderer #player-container,ytd-reel-video-renderer #shorts-player,ytd-reel-video-renderer #sticker-layer{height:100%!important;max-height:100%!important;min-height:0!important;width:100%!important}
+ytd-reel-video-renderer video{height:100%!important;width:100%!important;max-height:100%!important;object-fit:contain!important}
+ytd-reel-video-renderer ytd-player,ytd-reel-video-renderer ytd-player #container,ytd-reel-video-renderer #shorts-player,ytd-reel-video-renderer .html5-video-container,ytd-reel-video-renderer video{height:var(--gcfy-short-height)!important;max-height:var(--gcfy-short-height)!important;min-height:0!important;width:var(--gcfy-short-width)!important;max-width:var(--gcfy-short-width)!important}
+@media(max-width:700px){
+  ytd-watch-flexy:not([fullscreen]) #columns{flex-direction:column!important;min-width:0!important}
+  ytd-watch-flexy:not([fullscreen]) #primary{min-width:0!important;margin:0!important;padding:0 8px!important;width:auto!important}
+  ytd-watch-flexy:not([fullscreen]) #secondary{min-width:0!important;margin:0!important;padding:12px 8px!important;width:auto!important}
+  ytd-watch-flexy:not([fullscreen]) #player-container-outer{min-width:0!important}
+  ytd-commentbox #footer{flex-wrap:wrap}
+  ytd-commentbox #contenteditable-root{font-size:16px!important;min-height:48px}
+}
+
+/* cyt (from Can Demir GIF 0.7) presentation tokens for injected controls only. */
+ytd-commentbox.gcfy-commentbox #submit-button .gcfy-native-submit{min-height:48px!important}
+.gcfy-btn{min-height:48px;min-width:52px;border-radius:16px;border-color:#b98737;background:#e8b65b17;font-weight:750;letter-spacing:.02em}.gcfy-draft{border-color:#c59b53;border-radius:14px;background:#fff5e3;grid-template-columns:36px minmax(0,1fr) auto;padding:8px;gap:10px}.gcfy-draft img{width:36px;max-height:36px;border-radius:8px}.gcfy-draft button,.gcfy-draft a{min-height:48px;border-radius:12px}.gcfy-draft button{min-width:48px}.gcfy-native-submit{min-height:48px!important}html[dark] .gcfy-draft{background:#25221c;color:#f5f6f8}@media(prefers-reduced-motion:reduce){.gcfy-btn,.gcfy-draft{scroll-behavior:auto}}
