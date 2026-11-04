@@ -16,9 +16,16 @@ jobs:
           zip -r -X ../cyt.xpi . -x '*.DS_Store'
           cd ..
           unzip -l cyt.xpi | tail -3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cyt-xpi
+          path: cyt.xpi
       - name: Publish release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release delete latest --yes --cleanup-tag || true
-          gh release create latest cyt.xpi --prerelease --title "cyt (deneme surumu)" --notes "Deneysel surum. README'ye bak."
+          gh release delete latest --yes --cleanup-tag -R "$GITHUB_REPOSITORY" || true
+          if ! gh release create latest cyt.xpi -R "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease --title "cyt deneme surumu" --notes "Deneysel surum. README dosyasina bak." 2>err.txt; then
+            echo "::error::$(tr '\n' ' ' < err.txt | cut -c1-400)"
+            exit 1
+          fi
