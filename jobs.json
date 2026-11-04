@@ -2,86 +2,134 @@
   "total_count": 1,
   "jobs": [
     {
-      "id": 126504654692,
-      "run_id": 41809428832,
-      "workflow_name": "build-xpi",
+      "id": 126507080477,
+      "run_id": 41810146612,
+      "workflow_name": "build-apk",
       "head_branch": "main",
-      "run_url": "https://api.github.com/repos/ceyo0134/cyt/actions/runs/41809428832",
+      "run_url": "https://api.github.com/repos/ceyo0134/cyt/actions/runs/41810146612",
       "run_attempt": 1,
-      "node_id": "CR_kwDOVieO6s8AAAAddEPXZA",
-      "head_sha": "323c371afc1a2c7538385be777785c85f65cdc67",
-      "url": "https://api.github.com/repos/ceyo0134/cyt/actions/jobs/126504654692",
-      "html_url": "https://github.com/ceyo0134/cyt/actions/runs/41809428832/job/126504654692",
+      "node_id": "CR_kwDOVieO6s8AAAAddGjbHQ",
+      "head_sha": "1645aa7a8fa5345d8642e4e34ac08f846973d3fb",
+      "url": "https://api.github.com/repos/ceyo0134/cyt/actions/jobs/126507080477",
+      "html_url": "https://github.com/ceyo0134/cyt/actions/runs/41810146612/job/126507080477",
       "status": "completed",
       "conclusion": "failure",
-      "created_at": "2026-11-04T09:42:34Z",
-      "started_at": "2026-11-04T09:42:36Z",
-      "completed_at": "2026-11-04T09:42:47Z",
-      "name": "build",
+      "created_at": "2026-11-04T09:49:44Z",
+      "started_at": "2026-11-04T09:49:46Z",
+      "completed_at": "2026-11-04T09:50:52Z",
+      "name": "apk",
       "steps": [
         {
           "name": "Set up job",
           "status": "completed",
           "conclusion": "success",
           "number": 1,
-          "started_at": "2026-11-04T09:42:37Z",
-          "completed_at": "2026-11-04T09:42:38Z"
+          "started_at": "2026-11-04T09:49:47Z",
+          "completed_at": "2026-11-04T09:49:49Z"
         },
         {
           "name": "Run actions/checkout@v4",
           "status": "completed",
           "conclusion": "success",
           "number": 2,
-          "started_at": "2026-11-04T09:42:38Z",
-          "completed_at": "2026-11-04T09:42:39Z"
+          "started_at": "2026-11-04T09:49:49Z",
+          "completed_at": "2026-11-04T09:49:50Z"
         },
         {
-          "name": "Package xpi",
+          "name": "Run actions/setup-java@v4",
           "status": "completed",
           "conclusion": "success",
           "number": 3,
-          "started_at": "2026-11-04T09:42:39Z",
-          "completed_at": "2026-11-04T09:42:39Z"
+          "started_at": "2026-11-04T09:49:50Z",
+          "completed_at": "2026-11-04T09:49:50Z"
+        },
+        {
+          "name": "Run gradle/actions/setup-gradle@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-04T09:49:50Z",
+          "completed_at": "2026-11-04T09:50:02Z"
+        },
+        {
+          "name": "Latest GeckoView version",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-04T09:50:02Z",
+          "completed_at": "2026-11-04T09:50:02Z"
+        },
+        {
+          "name": "Bundle extension",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-04T09:50:02Z",
+          "completed_at": "2026-11-04T09:50:02Z"
+        },
+        {
+          "name": "Build APK",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2026-11-04T09:50:02Z",
+          "completed_at": "2026-11-04T09:50:44Z"
         },
         {
           "name": "Run actions/upload-artifact@v4",
           "status": "completed",
-          "conclusion": "success",
-          "number": 4,
-          "started_at": "2026-11-04T09:42:39Z",
-          "completed_at": "2026-11-04T09:42:40Z"
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-11-04T09:50:44Z",
+          "completed_at": "2026-11-04T09:50:44Z"
         },
         {
           "name": "Publish release",
           "status": "completed",
-          "conclusion": "failure",
-          "number": 5,
-          "started_at": "2026-11-04T09:42:40Z",
-          "completed_at": "2026-11-04T09:42:44Z"
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-11-04T09:50:44Z",
+          "completed_at": "2026-11-04T09:50:44Z"
+        },
+        {
+          "name": "Post Run gradle/actions/setup-gradle@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-04T09:50:44Z",
+          "completed_at": "2026-11-04T09:50:50Z"
+        },
+        {
+          "name": "Post Run actions/setup-java@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-04T09:50:50Z",
+          "completed_at": "2026-11-04T09:50:50Z"
         },
         {
           "name": "Post Run actions/checkout@v4",
           "status": "completed",
           "conclusion": "success",
-          "number": 10,
-          "started_at": "2026-11-04T09:42:44Z",
-          "completed_at": "2026-11-04T09:42:44Z"
+          "number": 18,
+          "started_at": "2026-11-04T09:50:50Z",
+          "completed_at": "2026-11-04T09:50:50Z"
         },
         {
           "name": "Complete job",
           "status": "completed",
           "conclusion": "success",
-          "number": 11,
-          "started_at": "2026-11-04T09:42:44Z",
-          "completed_at": "2026-11-04T09:42:44Z"
+          "number": 19,
+          "started_at": "2026-11-04T09:50:50Z",
+          "completed_at": "2026-11-04T09:50:50Z"
         }
       ],
-      "check_run_url": "https://api.github.com/repos/ceyo0134/cyt/check-runs/126504654692",
+      "check_run_url": "https://api.github.com/repos/ceyo0134/cyt/check-runs/126507080477",
       "labels": [
         "ubuntu-latest"
       ],
-      "runner_id": 1000000401,
-      "runner_name": "GitHub Actions 1000000401",
+      "runner_id": 1000000404,
+      "runner_name": "GitHub Actions 1000000404",
       "runner_group_id": 0,
       "runner_group_name": "GitHub Actions"
     }

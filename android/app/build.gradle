@@ -2,7 +2,7 @@ plugins { id 'com.android.application' }
 
 android {
     namespace 'com.cyt.app'
-    compileSdk 35
+    compileSdk 37
     defaultConfig {
         applicationId 'com.cyt.app'
         minSdk 26

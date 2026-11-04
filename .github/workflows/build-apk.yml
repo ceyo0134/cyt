@@ -17,7 +17,7 @@ jobs:
           java-version: '17'
       - uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '8.10.2'
+          gradle-version: '9.3.1'
       - name: Latest GeckoView version
         id: gv
         run: |
@@ -34,12 +34,13 @@ jobs:
         working-directory: android
         run: |
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null 2>&1 || true
+          "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-37.0" > /dev/null 2>&1 || "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "platforms;android-37" > /dev/null 2>&1 || true
           set +e
           gradle assembleDebug -PgeckoVersion="${{ steps.gv.outputs.version }}" --no-daemon > ../build.log 2>&1
           RC=$?
           set -e
           if [ "$RC" -ne 0 ]; then
-            echo "::error::$(grep -E 'error:|wrong|Could not|FAILED|Caused by|requires|not found|Unsupported' ../build.log | head -8 | tr '\n' ' ' | cut -c1-900)"
+            echo "::error::$(grep -E 'error:|wrong|Could not|FAILED|Caused by|requires|not found|Unsupported' ../build.log | head -14 | tr '\n' ' ' | cut -c1-2500)"
             exit 1
           fi
           cp app/build/outputs/apk/debug/app-debug.apk ../cyt.apk
