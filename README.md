@@ -23,3 +23,7 @@ GPL-3.0. Bu proje şu çalışmaların türevidir ve lisans gereği kaynak kodu 
 ## Kurulum
 
 Actions sekmesi `cyt.xpi` dosyasını derleyip **Releases > latest** altına koyar. Firefox Nightly (Android) ile kurulabilir; imzasız eklenti için `about:config` içinde `xpinstall.signatures.required` değerini `false` yapmak gerekir.
+
+## APK
+
+Actions > build-apk, `cyt.apk` dosyasını **Releases > apk-latest** altına koyar. Uygulama GeckoView (Firefox motoru) tabanlıdır, yalnızca YouTube ve Google giriş alan adlarına gitmeye izin verir ve eklenti içine gömülüdür. Debug imzalıdır; kurmak için bilinmeyen kaynaklara izin gerekir.
