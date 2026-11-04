@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "cyt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "cyt: YouTube yorumlarına GIF ekleme denemesi (deneysel). rayytor/desktop_gifs temelinde, GPL-3.0.",
   "browser_specific_settings": {
     "gecko": {

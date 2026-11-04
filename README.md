@@ -15,7 +15,7 @@ GPL-3.0. Bu proje şu çalışmaların türevidir ve lisans gereği kaynak kodu 
 
 ## Değişiklikler (özgün Android uyarlamasına göre)
 
-- Ad ve yorum imzası `cyt` / `cyt ile gönderildi` olarak değiştirildi.
+- Ad `cyt` olarak değiştirildi. Zorunlu yorum imzası kaldırıldı; yazı yazmadan, yalnızca GIF ile de gönderilebilir.
 - Tek test videosu sınırı kaldırıldı; her videoda çalışır.
 - "Tek kullanımlık" kilit yerine 30 sn bekleme süresi kondu.
 - Android yerel köprüsü (nativeMessaging) izni kaldırıldı; eklenti tek başına Firefox'ta çalışır.

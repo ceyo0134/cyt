@@ -1,0 +1,89 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 126504654692,
+      "run_id": 41809428832,
+      "workflow_name": "build-xpi",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/ceyo0134/cyt/actions/runs/41809428832",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVieO6s8AAAAddEPXZA",
+      "head_sha": "323c371afc1a2c7538385be777785c85f65cdc67",
+      "url": "https://api.github.com/repos/ceyo0134/cyt/actions/jobs/126504654692",
+      "html_url": "https://github.com/ceyo0134/cyt/actions/runs/41809428832/job/126504654692",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-04T09:42:34Z",
+      "started_at": "2026-11-04T09:42:36Z",
+      "completed_at": "2026-11-04T09:42:47Z",
+      "name": "build",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-04T09:42:37Z",
+          "completed_at": "2026-11-04T09:42:38Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-04T09:42:38Z",
+          "completed_at": "2026-11-04T09:42:39Z"
+        },
+        {
+          "name": "Package xpi",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-04T09:42:39Z",
+          "completed_at": "2026-11-04T09:42:39Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-04T09:42:39Z",
+          "completed_at": "2026-11-04T09:42:40Z"
+        },
+        {
+          "name": "Publish release",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 5,
+          "started_at": "2026-11-04T09:42:40Z",
+          "completed_at": "2026-11-04T09:42:44Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-04T09:42:44Z",
+          "completed_at": "2026-11-04T09:42:44Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-04T09:42:44Z",
+          "completed_at": "2026-11-04T09:42:44Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/ceyo0134/cyt/check-runs/126504654692",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000000401,
+      "runner_name": "GitHub Actions 1000000401",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

@@ -129,7 +129,7 @@
     const targetFail=code=>{const error=Error(code);Object.assign(error,target);throw error;};
     if(!pageVideo)targetFail('BINARY_PAGE_VIDEO_ONLY');
     if(requestVideo&&requestVideo!==pageVideo)targetFail('BINARY_REQUEST_VIDEO_MISMATCH');
-    if(typeof body.commentText!=='string'||!body.commentText.includes('cyt ile gönderildi'))fail('ATTRIBUTION_REQUIRED');
+    
     if(typeof body.tenorId!=='string'||!/^\d{1,20}$/.test(body.tenorId))fail('BINARY_GIF_ID');
     const nativeClient=body.context?.client,expected={WEB:'1',MWEB:'2'}[nativeClient?.clientName];
     if(!expected||headers.get('x-youtube-client-name')!==expected

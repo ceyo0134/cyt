@@ -2,7 +2,7 @@
 (() => {
   const boxScope = 'ytd-comment-simplebox-renderer, ytd-comment-thread-renderer, ytd-comment-dialog-renderer, ytd-comment-reply-dialog-renderer';
   const callbacks = new Map();
-  const REQUIRED_ATTRIBUTION = 'cyt ile gönderildi';
+  const REQUIRED_ATTRIBUTION = '';
   const availability = globalThis.CanDemirAvailability;
   const verificationPolicy = globalThis.CanDemirVerification;
   const picker = { open: false, busy: false, uncertain: false, selected: null, pending: null, seq: 0, box: null };
@@ -650,8 +650,8 @@
       result.verificationReadHttp=verification?.readHttp||0;
       result.state = verificationPolicy.verdict(verification, tx.editing);
       if (result.state === 'verified_public') {
-        showDraftStatus(tx, result.publicGifVerified ? 'Yorum, seçilen GIF ve cyt imzası çerezsiz YouTube yanıtında doğrulandı.'
-          : 'Yorum, YouTube’un GIF eki ve cyt imzası çerezsiz yanıtta doğrulandı. YouTube görsel kimliğini değiştirdiği için bire bir Tenor kimliği ayrıca doğrulanmadı.');
+        showDraftStatus(tx, result.publicGifVerified ? 'Yorum, seçilen GIF ve metin çerezsiz YouTube yanıtında doğrulandı.'
+          : 'Yorum, YouTube’un GIF eki ve metin çerezsiz yanıtta doğrulandı. YouTube görsel kimliğini değiştirdiği için bire bir Tenor kimliği ayrıca doğrulanmadı.');
         tx.image.hidden = true; tx.card.querySelector('strong').textContent = 'Gönderim doğrulandı';
         result.state='verified_public';
       } else if (result.state === 'gif_missing') {
@@ -661,7 +661,7 @@
         result.status = 'PUBLIC_SELECTED_GIF_UNVERIFIED';
         showDraftStatus(tx, 'Yorumda bir GIF eki var; yeni seçtiğin GIF’in kaydedildiği doğrulanamadı. Otomatik tekrar yapılmadı.', true);
       } else {
-        showDraftStatus(tx, verification?.commentVisible ? 'Yorum yayımlandı. GIF ve cyt imzasının herkese açık eşleşmesi tam doğrulanamadı. Aynı yorumu tekrar göndermeden kontrol edin.'
+        showDraftStatus(tx, verification?.commentVisible ? 'Yorum yayımlandı. GIF ve metnin herkese açık eşleşmesi tam doğrulanamadı. Aynı yorumu tekrar göndermeden kontrol edin.'
           : 'YouTube yanıtı alındı; yorum ve GIF’in herkese açık görünürlüğü doğrulanamadı. Tekrar göndermeden kontrol edin.', true);
       }
     } finally {

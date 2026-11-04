@@ -1,7 +1,7 @@
 // GPL-3.0. Shared Android/desktop policy. A release cannot enable an unverified
 // upload protocol by changing a page flag, a country code or an account token.
 (() => {
-  const attribution = 'cyt ile gönderildi';
+  const attribution = '';
   const reason = 'TENOR_ID_UNAVAILABLE';
   const description = 'DENEME SÜRÜMÜ: GIF gönderimi doğrulanmadı. İki gönderim arasında 30 sn beklenir; düzenleme ve otomatik tekrar kapalı.';
   function correlation() {
