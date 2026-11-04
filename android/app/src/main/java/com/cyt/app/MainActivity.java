@@ -9,6 +9,7 @@ import org.mozilla.geckoview.AllowOrDeny;
 import org.mozilla.geckoview.GeckoResult;
 import org.mozilla.geckoview.GeckoRuntime;
 import org.mozilla.geckoview.GeckoSession;
+import org.mozilla.geckoview.GeckoSessionSettings;
 import org.mozilla.geckoview.GeckoView;
 
 import java.util.Locale;
@@ -19,7 +20,9 @@ public class MainActivity extends Activity {
     private GeckoSession session;
     private boolean canGoBack = false;
 
-    private static final String HOME = "https://m.youtube.com/";
+    // The extension targets the desktop YouTube layout (ytd-* elements), so load that
+    // layout (desktop UA, phone-width viewport) instead of m.youtube.com.
+    private static final String HOME = "https://www.youtube.com/?app=desktop";
     private static final String[] ALLOWED = {
         "youtube.com", "youtu.be", "google.com", "googleusercontent.com",
         "gstatic.com", "ytimg.com", "youtube-nocookie.com"
@@ -47,7 +50,10 @@ public class MainActivity extends Activity {
 
         if (sRuntime == null) sRuntime = GeckoRuntime.create(getApplicationContext());
 
-        session = new GeckoSession();
+        session = new GeckoSession(new GeckoSessionSettings.Builder()
+            .userAgentMode(GeckoSessionSettings.USER_AGENT_MODE_DESKTOP)
+            .viewportMode(GeckoSessionSettings.VIEWPORT_MODE_MOBILE)
+            .build());
         session.setNavigationDelegate(new GeckoSession.NavigationDelegate() {
             @Override
             public GeckoResult<AllowOrDeny> onLoadRequest(GeckoSession s, GeckoSession.NavigationDelegate.LoadRequest request) {
