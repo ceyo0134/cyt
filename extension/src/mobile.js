@@ -2,7 +2,7 @@
 (() => {
   const boxScope = 'ytd-comment-simplebox-renderer, ytd-comment-thread-renderer, ytd-comment-dialog-renderer, ytd-comment-reply-dialog-renderer';
   const callbacks = new Map();
-  const REQUIRED_ATTRIBUTION = '';
+  const REQUIRED_ATTRIBUTION = '\u200b';
   const availability = globalThis.CanDemirAvailability;
   const verificationPolicy = globalThis.CanDemirVerification;
   const picker = { open: false, busy: false, uncertain: false, selected: null, pending: null, seq: 0, box: null };
@@ -537,10 +537,10 @@
   function readEditor(editor) { return editor.tagName === 'TEXTAREA' || editor.tagName === 'INPUT' ? editor.value : typeof editor.innerText === 'string' ? editor.innerText : editor.textContent; }
   function report(tx, result) {
     try {
-      if (tx && tx.card && result && ['rejected','unknown','blocked'].includes(result.state)) {
-        let d = tx.card.querySelector('.gcfy-diag');
-        if (!d) { d = element('p', '', 'gcfy-diag'); d.style.cssText = 'user-select:text;-webkit-user-select:text;font:12px/1.4 monospace;word-break:break-all;margin:6px 0;color:#7a0000'; tx.card.append(d); }
-        d.textContent = 'TESHIS: durum=' + (result.state||'') + ' | http=' + (result.http||0) + ' | kod=' + (result.status||'') + ' | api=' + (result.apiStatus||'') + ' | eylem=' + (result.actionStatus||'') + ' | mesaj=' + String(result.serverMessage||'').slice(0,160) + ' | alan=' + String(result.schemaFields||'').slice(0,100) + ' | aktarim=' + (result.transport||tx.transport||'');
+      if (result && ['rejected','unknown','blocked'].includes(result.state)) {
+        let d = document.getElementById('gcfy-diag-overlay');
+        if (!d) { d = document.createElement('div'); d.id = 'gcfy-diag-overlay'; d.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:2147483647;max-height:45vh;overflow:auto;background:#fff;color:#7a0000;border-top:2px solid #7a0000;padding:8px 10px;font:12px/1.35 monospace;word-break:break-all;user-select:text;-webkit-user-select:text'; d.addEventListener('click', () => d.remove()); document.body.append(d); }
+        d.textContent = '[dokun: kapat] ALAN=' + String(result.schemaFields||'') + ' | durum=' + (result.state||'') + ' | http=' + (result.http||0) + ' | kod=' + (result.status||'') + ' | api=' + (result.apiStatus||'') + ' | eylem=' + (result.actionStatus||'') + ' | mesaj=' + String(result.serverMessage||'').slice(0,200) + ' | aktarim=' + (result.transport||(tx&&tx.transport)||'');
       }
     } catch (_) {}
     browser.runtime.sendMessage({ type: 'diagnostic', stage: result.state, http: result.http || 0, status: result.status,

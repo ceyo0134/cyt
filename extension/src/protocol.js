@@ -75,8 +75,8 @@
     let found = false;
     walk(value, node => {
       const text = typeof node.content === 'string' ? node.content : typeof node.text === 'string' ? node.text : '';
-      if (text.includes('')) found = true;
-      if (Array.isArray(node.runs) && node.runs.map(r => r.text || '').join('').includes('')) found = true;
+      if (text.includes('\u200b')) found = true;
+      if (Array.isArray(node.runs) && node.runs.map(r => r.text || '').join('').includes('\u200b')) found = true;
     });
     return found;
   }
@@ -140,7 +140,7 @@
       || ownText === null || MARKER.test(ownText) || !entry || entry.activated === false || entry.id !== id || entry.expires < Date.now()) {
       const error = new Error('MARKER_BLOCKED'); error.nonce = nonce; throw error;
     }
-    if (!ownText.includes('')) {
+    if (!ownText.includes('\u200b')) {
       const error = new Error('ATTRIBUTION_REQUIRED'); error.nonce = nonce; throw error;
     }
     if (globalThis.CanDemirAvailability?.gifPosting !== true) {
