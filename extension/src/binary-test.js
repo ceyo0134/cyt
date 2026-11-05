@@ -136,7 +136,7 @@
        ||headers.get('x-youtube-client-version')!==nativeClient.clientVersion)fail('BINARY_CLIENT_MISMATCH');
     // YouTube's web client now sends this optional token-jar metadata field, which the local schema does not know.
     // Drop it (instead of blocking) so the request can be encoded; every other unknown field still blocks.
-    if(body.context&&body.context.request&&typeof body.context.request==='object')delete body.context.request.innertubeTokenJar;
+    if(body.context&&body.context.request&&typeof body.context.request==='object'){delete body.context.request.innertubeTokenJar;delete body.context.request.consistencyTokenJars;}
     let unknown=unknownFields(body,create);
     // Newer YouTube clients add more optional metadata under context.request (token jars, flags). Drop only those;
     // an unknown field anywhere else (the comment itself, attachments, params) still blocks the send.
