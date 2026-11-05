@@ -137,7 +137,11 @@
     // YouTube's web client now sends this optional token-jar metadata field, which the local schema does not know.
     // Drop it (instead of blocking) so the request can be encoded; every other unknown field still blocks.
     if(body.context&&body.context.request&&typeof body.context.request==='object')delete body.context.request.innertubeTokenJar;
-    const unknown=unknownFields(body,create);
+    let unknown=unknownFields(body,create);
+    // Newer YouTube clients add more optional metadata under context.request (token jars, flags). Drop only those;
+    // an unknown field anywhere else (the comment itself, attachments, params) still blocks the send.
+    const droppable=unknown.filter(f=>/^context\.request\.[A-Za-z0-9_]+$/.test(f));
+    if(droppable.length){for(const f of droppable)delete body.context.request[f.slice('context.request.'.length)];unknown=unknownFields(body,create);}
     if(unknown.length){const error=Error('BINARY_UNKNOWN_FIELD');Object.assign(error,target,{schemaFields:unknown.join(', ')});throw error;}
     const omitted=[];let bytes;try{bytes=encode(body,create,omitted);}catch(error){Object.assign(error,target);throw error;}
     const nextHeaders=new Headers(headers);nextHeaders.set('content-type','application/x-protobuf');
