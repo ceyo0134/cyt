@@ -134,6 +134,9 @@
     const nativeClient=body.context?.client,expected={WEB:'1',MWEB:'2'}[nativeClient?.clientName];
     if(!expected||headers.get('x-youtube-client-name')!==expected
        ||headers.get('x-youtube-client-version')!==nativeClient.clientVersion)fail('BINARY_CLIENT_MISMATCH');
+    // YouTube's web client now sends this optional token-jar metadata field, which the local schema does not know.
+    // Drop it (instead of blocking) so the request can be encoded; every other unknown field still blocks.
+    if(body.context&&body.context.request&&typeof body.context.request==='object')delete body.context.request.innertubeTokenJar;
     const unknown=unknownFields(body,create);
     if(unknown.length){const error=Error('BINARY_UNKNOWN_FIELD');Object.assign(error,target,{schemaFields:unknown.join(', ')});throw error;}
     const omitted=[];let bytes;try{bytes=encode(body,create,omitted);}catch(error){Object.assign(error,target);throw error;}
