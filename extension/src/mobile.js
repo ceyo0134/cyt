@@ -536,6 +536,13 @@
   }
   function readEditor(editor) { return editor.tagName === 'TEXTAREA' || editor.tagName === 'INPUT' ? editor.value : typeof editor.innerText === 'string' ? editor.innerText : editor.textContent; }
   function report(tx, result) {
+    try {
+      if (tx && tx.card && result && ['rejected','unknown','blocked'].includes(result.state)) {
+        let d = tx.card.querySelector('.gcfy-diag');
+        if (!d) { d = element('p', '', 'gcfy-diag'); d.style.cssText = 'user-select:text;-webkit-user-select:text;font:12px/1.4 monospace;word-break:break-all;margin:6px 0;color:#7a0000'; tx.card.append(d); }
+        d.textContent = 'TESHIS: durum=' + (result.state||'') + ' | http=' + (result.http||0) + ' | kod=' + (result.status||'') + ' | api=' + (result.apiStatus||'') + ' | eylem=' + (result.actionStatus||'') + ' | mesaj=' + String(result.serverMessage||'').slice(0,160) + ' | alan=' + String(result.schemaFields||'').slice(0,100) + ' | aktarim=' + (result.transport||tx.transport||'');
+      }
+    } catch (_) {}
     browser.runtime.sendMessage({ type: 'diagnostic', stage: result.state, http: result.http || 0, status: result.status,
       correlationId:tx.nonce,category:availability.category(result.status,result.http),
       transport: result.transport || tx.transport || '', endpoint: result.endpoint || tx.endpoint || '', nativeTapped: tx.clicked, errorName: result.errorName || '',
